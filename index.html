@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form to Google Sheets</title>
+</head>
+<body>
+
+    <h1>Submit Your Information</h1>
+
+    <form id="userForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="rememberMe">Remember Me:</label>
+        <input type="checkbox" id="rememberMe" name="rememberMe"><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        const scriptURL = 'YOUR_DEPLOYED_GOOGLE_SCRIPT_URL'; // Add your deployed script URL here
+        const form = document.getElementById('userForm');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            fetch(scriptURL, { 
+                method: 'POST', 
+                body: new FormData(form)
+            })
+            .then(response => alert('Success!'))
+            .catch(error => console.error('Error!', error.message))
+        });
+    </script>
+
+</body>
+</html>
