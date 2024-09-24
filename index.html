@@ -3,27 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form to Google Sheets</title>
+    <title>Discord-Themed Form</title>
+
+    <!-- CSS for Discord-Like Styling -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #2c2f33;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #7289da;
+        }
+
+        form {
+            background-color: #36393f;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #b9bbbe;
+        }
+
+        input[type="text"],
+        input[type="email"] {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #40444b;
+            color: #fff;
+        }
+
+        input[type="text"]::placeholder,
+        input[type="email"]::placeholder {
+            color: #72767d;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #7289da;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: #5b6eae;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            color: #b9bbbe;
+        }
+    </style>
 </head>
 <body>
 
-    <h1>Submit Your Information</h1>
-
     <form id="userForm">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required><br><br>
+        <h1>🤺Fencing🤺</h1>
+        <h1>Sign-in</h1>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br><br>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
 
-        <label for="rememberMe">Remember Me:</label>
-        <input type="checkbox" id="rememberMe" name="rememberMe"><br><br>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+        <div class="checkbox-container">
+            <input type="checkbox" id="rememberMe" name="rememberMe">
+            <label for="rememberMe">Remember Me</label>
+        </div>
 
         <button type="submit">Submit</button>
     </form>
 
     <script>
-        const scriptURL = 'YOUR_DEPLOYED_GOOGLE_SCRIPT_URL'; // Add your deployed script URL here
+        const scriptURL = 'https://script.google.com/a/macros/uic.edu/s/AKfycbyKhI9ggg1zSSOhelOR0KnlkVjivrtG3sMLH4FBhFtx6bPx46dS3DEAXD_azIJbgwt0hA/exec'; // Add your deployed script URL here
         const form = document.getElementById('userForm');
 
         form.addEventListener('submit', e => {
